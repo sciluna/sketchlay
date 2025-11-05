@@ -1,4 +1,4 @@
-let computeConstraints = function (placement, isLoop, idealEdgeLength, slopeThreshold) {
+let computeConstraints = function (cy, placement, isLoop, idealEdgeLength, slopeThreshold) {
   let relativePlacementConstraints = [];
   let verticalAlignments = [];
   let horizontalAlignments = [];
@@ -854,7 +854,7 @@ let extractLines = async function (imageData, connectionTolerance) {
   return lines;
 };
 
-let assignNodesToLines = function( prunedGraph, lines, cycleThreshold, isSubset ){
+let assignNodesToLines = function(cy, prunedGraph, lines, cycleThreshold, isSubset ){
   let lineCount = lines.length;
   let lineSizes = calculateLineLengths(lines);
   let applyIncremental = false;
@@ -922,9 +922,9 @@ let generateConstraints = async function(cy, imageData, subset, idealEdgeLength,
 
   if (lines.length > 0) {
     // lines now have assigned nodes
-    let assignment = assignNodesToLines(prunedGraph, lines, cycleThreshold, isSubset);
+    let assignment = assignNodesToLines(cy, prunedGraph, lines, cycleThreshold, isSubset);
 
-    let constraints = computeConstraints(assignment.lines, assignment.isLoop, idealEdgeLength, slopeThreshold);
+    let constraints = computeConstraints(cy, assignment.lines, assignment.isLoop, idealEdgeLength, slopeThreshold);
     constraints.fixedNodeConstraint = fixedNodeConstraints;
 
     return {constraints: constraints, applyIncremental: assignment.applyIncremental};

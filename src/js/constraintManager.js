@@ -1,4 +1,4 @@
-let computeConstraints = function (placement, isLoop, idealEdgeLength, slopeThreshold) {
+let computeConstraints = function (cy, placement, isLoop, idealEdgeLength, slopeThreshold) {
   let relativePlacementConstraints = [];
   let verticalAlignments = [];
   let horizontalAlignments = [];

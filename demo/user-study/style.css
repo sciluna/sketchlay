@@ -1,0 +1,106 @@
+body {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+  font-size: 14px;
+}
+
+hr {
+  margin: 8px 0px 16px 0px !important;
+}
+
+#cy1 {
+  position: absolute;
+  left: 25%;
+  top: 11%;
+  bottom: 4%;
+  right: 40%;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+}
+
+#cy2 {
+  position: absolute;
+  left: 61%;
+  top: 11%;
+  bottom: 4%;
+  right: 1%;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+}
+
+#inputArea {
+  position: absolute;
+  width: 23%;
+  height: 90%;
+  margin-top: 0px;
+}
+
+#shapeInputField {
+  position: relative;
+  height: 40%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  z-index: 999;
+}
+
+#drawingCanvas {
+  display: flexbox;
+  margin-bottom: 15px;
+  cursor: crosshair;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+}
+
+#textInput {
+  position: absolute;
+  width: 28%;
+  height: 37%;
+  left: 10;
+  top: 56%;
+  z-index: 999;
+}
+
+h1 {
+  opacity: 0.5;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+#layoutButton {
+  margin-right: 10px;
+}
+
+#randomize {
+  vertical-align: top;
+}
+
+#samples {
+  margin-right: 10px;
+}
+
+#infoTooltip {
+  visibility: hidden;
+  width: 400px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  text-align: justify;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: black;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 3000;
+  top: 0px;
+  left: 420px;
+}
