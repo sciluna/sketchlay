@@ -9,30 +9,76 @@ hr {
   margin: 8px 0px 16px 0px !important;
 }
 
-#cy1 {
+.container2 {
   position: absolute;
   left: 25%;
-  top: 11%;
-  bottom: 4%;
-  right: 40%;
+  display: grid;
+  width: 74%;
+  grid-template-columns: 0.5fr 0.5fr;
+  background-color: white;
+  padding: 10px;
+  right: 0;
+  margin: 0
+}
+
+#cy1 {
+  height: 250px;
   z-index: 999;
   border-radius: 2px;
   border-width: 2px;
   border-color: #555555;
   border-style: solid;
+  margin: 10px;
 }
 
 #cy2 {
-  position: absolute;
-  left: 61%;
-  top: 11%;
-  bottom: 4%;
-  right: 1%;
+  height: 250px;
   z-index: 999;
   border-radius: 2px;
   border-width: 2px;
   border-color: #555555;
   border-style: solid;
+  margin: 10px;
+}
+
+#cy3 {
+  height: 250px;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+  margin: 10px;
+}
+
+#cy4 {
+  height: 250px;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+  margin: 10px;
+}
+
+#cy5 {
+  height: 250px;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+  margin: 10px;
+}
+
+#cy6 {
+  height: 250px;
+  z-index: 999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+  margin: 10px;
 }
 
 #inputArea {
