@@ -149,7 +149,7 @@ document.getElementById("layoutButton").addEventListener("click", async function
     setTimeout(async function() {
       await applyLayoutCola(cy4, constraints2, applyIncremental2, applyPolishing);
     }, 1500);
-  }, 2000);
+  }, 3000);
 
   setTimeout(async function() {
     await uggly.generateConstraints({cy: cy5, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
@@ -161,8 +161,8 @@ document.getElementById("layoutButton").addEventListener("click", async function
     setTimeout(async function() {
       await applyLayoutCola(cy6, constraints3, applyIncremental3, applyPolishing);
     }, 1500);
-  }, 4000); 
-  
+  }, 5000); 
+ 
   document.getElementById("layoutButton").disabled = false;
   document.getElementById("layoutButton").innerHTML = 'Apply Layout';
 });
