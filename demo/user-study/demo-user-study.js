@@ -50,7 +50,13 @@ let sampleFileNames = {
   "graph3" : graph3,
   "graph4" : graph4,    
   "graph5" : graph5,
-  "graph6" : graph6
+  "graph6" : graph6,
+  "graph7" : graph7,
+  "graph8" : graph8,
+  "graph9" : graph9,
+  "graph10" : graph10,    
+  "graph11" : graph11,
+  "graph12" : graph12
 };
 
 let sampleName = "";
@@ -64,6 +70,12 @@ document.getElementById("samples").addEventListener("change", function (event) {
     loadSampleSet(jsons);
   } else if(sample == "graphset2") {
     let jsons = ["graph4", "graph5", "graph6"];
+    loadSampleSet(jsons);
+  } else if(sample == "graphset3") {
+    let jsons = ["graph7", "graph8", "graph9"];
+    loadSampleSet(jsons);
+  } else if(sample == "graphset4") {
+    let jsons = ["graph10", "graph11", "graph12"];
     loadSampleSet(jsons);
   }
 });
