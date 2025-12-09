@@ -9,17 +9,34 @@ hr {
   margin: 8px 0px 16px 0px !important;
 }
 
-#cy {
+.container2 {
   position: absolute;
-  left: 30%;
-  top: 8%;
-  bottom: 4%;
-  right: 1%;
-  z-index: 999;
+  left: 29%;
+  display: grid;
+  width: 71%;
+  height: 90%;
+  grid-template-columns: 1fr 1fr;
+  background-color: white;
+  padding: 10px;
+  margin: 0;
+}
+
+#cy1 {
+  z-index: 1999;
   border-radius: 2px;
   border-width: 2px;
   border-color: #555555;
   border-style: solid;
+  margin: 10px;
+}
+
+#cy2 {
+  z-index: 1999;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #555555;
+  border-style: solid;
+  margin: 10px;
 }
 
 #inputArea {
@@ -89,5 +106,5 @@ h1 {
   position: absolute;
   z-index: 3000;
   top: 0px;
-  left: 420px;
+  left: 340px;
 }

@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.uggly = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.sketchLay = factory());
 })(this, (function () { 'use strict';
 
   let computeConstraints = function (cy, placement, isLoop, idealEdgeLength, slopeThreshold) {
@@ -983,11 +983,11 @@
   };
 
   //import { runTest } from "./test_runtime";
-  let uggly = function () {
+  let sketchLay = function () {
 
   };
 
-  uggly.generateConstraints = function(options){
+  sketchLay.generateConstraints = function(options){
     let cy = options.cy;
     let imageData = options.imageData;
     let subset = options.subset || undefined;
@@ -998,11 +998,11 @@
     return generateConstraints(cy, imageData, subset, idealEdgeLength, slopeThreshold, cycleThreshold, connectionTolerance);
   };
 
-  //uggly.runTest = runTest; // for test purposes
+  //sketchLay.runTest = runTest; // for test purposes
 
-  // Make uggly available globally if running in browser
+  // Make sketchLay available globally if running in browser
   if (typeof window !== 'undefined') {
-    window.uggly = uggly;
+    window.sketchLay = sketchLay;
   }
 
   const isFn = fn => typeof fn === 'function';
@@ -1016,7 +1016,7 @@
   };
 
   /*!
-   * uggly.js
+   * sketchLay.js
    * License: CC0 1.0 Universal
    *
    * This project uses simplify.js, licensed under the BSD-2-Clause License:
@@ -1045,6 +1045,6 @@
    * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    */
 
-  return uggly;
+  return sketchLay;
 
 }));

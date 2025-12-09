@@ -1,8 +1,8 @@
-# User-Guided Force-Directed Graph Layout
+# SketchLay: User-Guided Force-Directed Graph Layout through Freehand Sketching
 
-User-guided force-directed graph layout is a layout approach that lets users specify their desired layout structure by drawing sketches (e.g., rectangle, L-shape). Our method leverages a well-established image analysis technique, skeletonization (i.e., medial axis transform), to interpret the user sketch and uses the extracted structural information to guide force-directed layout algorithms with placement constraint support. It works well for small to medium-sized graphs and generates visually effective layouts aligned with user intent.
+SketchLay is a layout approach that lets users specify their desired layout structure by drawing sketches (e.g., rectangle, L-shape). Our method leverages a well-established image analysis technique, skeletonization (i.e., medial axis transform), to interpret the user sketch and uses the extracted structural information to guide force-directed layout algorithms with placement constraint support. It works well for small to medium-sized graphs and generates visually effective layouts aligned with user intent.
 
-Click [here](https://sciluna.github.io/uggly/demo/index.html) for a demo.
+Click [here](https://sciluna.github.io/sketchlay/demo/index.html) for a demo.
 
 Here is a video tutorial:
 
@@ -19,8 +19,8 @@ https://github.com/user-attachments/assets/21c3380e-7239-41cb-86d6-a2e0b76a1876
 ## Usage instructions
 
 Download the library:
- * via npm: `npm install uggly`,
- * via bower: `bower install uggly`, or
+ * via npm: `npm install sketchlay`,
+ * via bower: `bower install sketchlay`, or
  * via direct download in the repository (probably from a tag).
 
 Import the library as appropriate for your project:
@@ -28,28 +28,28 @@ Import the library as appropriate for your project:
 ES import:
 
 ```js
-import uggly from 'uggly';
+import sketchLay from 'sketchlay';
 ```
 
 CommonJS require:
 
 ```js
-const uggly = require('uggly');
+const sketchLay = require('sketchlay');
 ```
 
 For plain HTML/JS, just add the following:
 ```
-<script src="https://unpkg.com/uggly/dist/bundle.umd.js"></script>
+<script src="https://unpkg.com/sketchlay/dist/bundle.umd.js"></script>
 ```
 
 Then to generate the required placement constraints, call 
 ```js
-let result = await uggly.generateConstraints({...});
+let result = await sketchLay.generateConstraints({...});
 ```
 
 ## API
 
-`uggly.generateConstraints(options)`
+`sketchLay.generateConstraints(options)`
 
 To generate the required placement constraints based on the given graph and image data.
 
@@ -90,7 +90,7 @@ let options = {
 }
 ```
 
-After constraints are generated, they can be used as options in the layout algorithm as shown in the [demo](https://github.com/sciluna/uggly/blob/main/demo/demo.js).
+After constraints are generated, they can be used as options in a layout algorithm with constraint support such as fCoSE and CoLa as shown in the [demo](https://github.com/sciluna/sketchlay/blob/main/demo/demo.js).
 
 ## Performance comparison between fCoSE and CoLa layouts
 

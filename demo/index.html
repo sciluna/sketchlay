@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>User-Guided Force-Directed Graph Layout</title>
+  <title>SketchLay</title>
 
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <link href="style.css" rel="stylesheet">
@@ -32,7 +32,8 @@
   <script type="text/javascript" src="samples/cheminfo.js"></script>
   <script type="text/javascript" src="samples/crime.js"></script>
   <script type="text/javascript" src="samples/glycolysis.js"></script>
-  <script type="text/javascript" src="samples/rome.js"></script>      
+  <script type="text/javascript" src="samples/rome.js"></script>
+  <script type="text/javascript" src="samples/sample0.js"></script>    
   <script type="text/javascript" src="samples/sample1.js"></script>
   <script type="text/javascript" src="samples/sample2.js"></script>
   <script type="text/javascript" src="samples/sample3.js"></script>
@@ -43,22 +44,22 @@
 </head>
 
 <body>
-  <h4>User-Guided Force-Directed Graph Layout</h4>
+  <h4>SketchLay</h4>
   <hr>
   <div id="inputArea">
     <form class="form-inline">
-      <div class="btn-group me-1" role="group">
-        <button id="openFile" type="button" class="btn btn-secondary btn-sm" title="Load GraphML file"> Open...</button>
-        <div class="alert alert-dark m-0 px-0"></div>
+<!--       <div class="btn-group me-1" role="group"> -->
+        <button id="openFile" type="button" class="btn btn-secondary btn-sm" title="Load GraphML file"> Open file...</button>
+<!--         <div class="alert alert-dark m-0 px-0"></div> -->
         <input id="inputFile" type='file' style="display: none" />
-        <ul class="dropdown-menu">
+<!--         <ul class="dropdown-menu">
           <li><a id="savePNG" class="dropdown-item" href="#">Save as PNG</a></li>
           <li><a id="saveJPG" class="dropdown-item" href="#">Save as JPG</a></li>
           <li><a id="saveSVG" class="dropdown-item" href="#">Save as SVG</a></li>
         </ul>
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" title="Save as PNG, JPG or SVG">  Save as Image</button>
-      </div>
-      <label for="samples" class="col-form-label me-1">Sample:</label>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" title="Save as PNG, JPG or SVG">  Save as Image</button> -->
+<!--       </div> -->
+      <label for="samples" class="col-form-label ms-2 me-1">Sample:</label>
       <select class="form-select-sm" style="width:auto;" name="samples" id="samples">
         <option value="" disabled selected>Select</option>
         <option value="sample1">Sample 1</option>
@@ -79,7 +80,7 @@
     <div id="shapeInputField">
       <h5>Layout Options</h5>
       <div style="font-size: 15;">
-        <label for="layoutName" style="padding: 0 3 3 0; width: 175px;">Layout Type:</label>
+<!--         <label for="layoutName" style="padding: 0 3 3 0; width: 175px;">Layout Type:</label>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="layoutName" id="layoutName1" value="fcose" checked>
           <label class="form-check-label" for="layoutName1">fCoSE</label>
@@ -87,7 +88,7 @@
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="layoutName" id="layoutName2" value="cola">
           <label class="form-check-label" for="layoutName2">CoLa</label>
-        </div><br>
+        </div><br> -->
         <div class="form-check form-check-inline d-flex" style="padding: 5 0 0 0px;">
           <label for="applyPolishing" class="form-check-label me-4" style="width: 175px;">
             Apply Polishing:
@@ -146,9 +147,17 @@
         <button id="runTest" class="btn btn-primary btn-sm" style="display: none">Run Test</button>
         <button id="clearButton" class="btn btn-info btn-sm float-end me-3">Clear Drawing</button>
       </div>
+      <label class="form-check-label" style="margin-top: 15px; font-size: 14;">An empty sketch will return basic fCoSE/CoLa layouts.</label>
     </div>
   </div>
-  <div id="cy"></div>
+  <div class="container2">
+    <div id="cy1">
+      <label class="form-check-label" style="margin-top: -30px;">with <b>fCoSE</b></label><br>
+    </div>
+    <div id="cy2">
+      <label class="form-check-label" style="margin-top: -30px;">with <b>CoLa</b></label><br>
+    </div>
+  </div>
 
   <script>
     const canvas = document.getElementById('drawingCanvas');
@@ -158,14 +167,14 @@
 
     // Resize the canvas to match the parent container
     function resizeCanvas() {
-      const container = document.getElementById('cy');
+      const container = document.getElementById('shapeInputField');
       const rect = container.getBoundingClientRect();
       const style = window.getComputedStyle(container);
       const borderWidth = parseFloat(style.borderLeftWidth);
 
       // Set the canvas's internal rendering size to match the container
-      canvas.width = (rect.width - 2 * borderWidth) / 2.5;
-      canvas.height = (rect.height - 2 * borderWidth) / 2.5;
+      canvas.width = rect.width - 15;
+      canvas.height = 250;
 
       // Optional: Adjust for high-DPI displays
       const pixelRatio = window.devicePixelRatio || 1;

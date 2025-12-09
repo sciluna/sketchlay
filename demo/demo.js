@@ -87,53 +87,22 @@ let stylesheetWater = [
   }
 ];
 
-
-let cy = window.cy = cytoscape({
-  container: document.getElementById('cy'),
+let cy1 = window.cy1 = cytoscape({
+  container: document.getElementById('cy1'),
   style: defaultStylesheet,
-  elements: [
-    { "data": { "id": "n0", "group": "nodes", "fakeID": "n0"} },
-    { "data": { "id": "n1", "group": "nodes", "fakeID": "n1" } },
-    { "data": { "id": "n2", "group": "nodes", "fakeID": "n2" } },
-    { "data": { "id": "n3", "group": "nodes", "fakeID": "n3" } },
-    { "data": { "id": "n4", "group": "nodes", "fakeID": "n4" } },
-    { "data": { "id": "n5", "group": "nodes", "fakeID": "n5" } },
-    { "data": { "id": "n6", "group": "nodes", "fakeID": "n6" } },
-    { "data": { "id": "n7", "group": "nodes", "fakeID": "n7" } }, // actual until here
-    { "data": { "id": "n8", "group": "nodes", "fakeID": "n8" } },
-    { "data": { "id": "n9", "group": "nodes", "fakeID": "n9" } },
-    { "data": { "id": "n10", "group": "nodes", "fakeID": "n10" } },
-    { "data": { "id": "n11", "group": "nodes", "fakeID": "n11"} },
-    { "data": { "id": "n12", "group": "nodes", "fakeID": "n12" } },
-    { "data": { "id": "n13", "group": "nodes", "fakeID": "n13" } },
-    { "data": { "id": "n14", "group": "nodes", "fakeID": "n14" } },
-    { "data": { "id": "n15", "group": "nodes", "fakeID": "n15" } },
-    { "data": { "id": "n16", "group": "nodes", "fakeID": "n16" } },
-    { "data": { "id": "n17", "group": "nodes", "fakeID": "n17" } },
-    { "data": { "id": "n18", "group": "nodes", "fakeID": "n17" } },
-    { "data": { "id": "n19", "group": "nodes", "fakeID": "n19" } },
-    { "data": { "id": "e0", "source": "n0", "target": "n1", "group": "edges" } },
-    { "data": { "id": "e1", "source": "n1", "target": "n2", "group": "edges" } },
-    { "data": { "id": "e2", "source": "n2", "target": "n3", "group": "edges" } },
-    { "data": { "id": "e3", "source": "n3", "target": "n4", "group": "edges" } },
-    { "data": { "id": "e4", "source": "n4", "target": "n5", "group": "edges" } },
-    { "data": { "id": "e5", "source": "n5", "target": "n6", "group": "edges" } },
-    { "data": { "id": "e6", "source": "n6", "target": "n7", "group": "edges" } },
-    { "data": { "id": "e7", "source": "n1", "target": "n8", "group": "edges" } },
-    { "data": { "id": "e8", "source": "n1", "target": "n9", "group": "edges" } },
-    { "data": { "id": "e9", "source": "n2", "target": "n10", "group": "edges" } },
-    { "data": { "id": "e10", "source": "n2", "target": "n11", "group": "edges" } },
-    { "data": { "id": "e11", "source": "n3", "target": "n12", "group": "edges" } },
-    { "data": { "id": "e12", "source": "n3", "target": "n13", "group": "edges" } },
-    { "data": { "id": "e13", "source": "n4", "target": "n14", "group": "edges" } },
-    { "data": { "id": "e14", "source": "n4", "target": "n15", "group": "edges" } },
-    { "data": { "id": "e15", "source": "n5", "target": "n16", "group": "edges" } },
-    { "data": { "id": "e16", "source": "n5", "target": "n17", "group": "edges" } },
-    { "data": { "id": "e17", "source": "n6", "target": "n18", "group": "edges" } },
-    { "data": { "id": "e18", "source": "n6", "target": "n19", "group": "edges" } }
-  ],
-  layout: {name: "fcose", idealEdgeLength: 75}
+  elements: sample0,
+/*   layout: {name: "fcose", idealEdgeLength: 75}, */
 });
+
+let cy2 = window.cy2 = cytoscape({
+  container: document.getElementById('cy2'),
+  style: defaultStylesheet
+});
+
+cy1.layout({ name: "fcose", animate: true, animationDuration: 500, stop: () => {
+  cy2.add(sample0);
+  cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: false, animationDuration: 500 }).run();
+}}).run();
 
 // Sample File Changer
 let sampleFileNames = {
@@ -162,16 +131,26 @@ document.getElementById("samples").addEventListener("change", function (event) {
 });
 
 let loadSample = function (json, sampleName) {
-  cy.remove(cy.elements());
+  cy1.remove(cy1.elements());
+  cy2.remove(cy2.elements());
 
   if (sampleName && (sampleName == "glycolysis" || sampleName == "tca_cycle")) {
     if (sampleName == "glycolysis"){
-      cy.style(cytoscapeSbgnStylesheet(cytoscape, "bluescale"));
+      cy1.style(cytoscapeSbgnStylesheet(cytoscape, "bluescale"));
+      cy2.style(cytoscapeSbgnStylesheet(cytoscape, "bluescale"));
     } else {
-      cy.style(cytoscapeSbgnStylesheet(cytoscape, "purple_green"));
+      cy1.style(cytoscapeSbgnStylesheet(cytoscape, "purple_green"));
+      cy2.style(cytoscapeSbgnStylesheet(cytoscape, "purple_green"));
     }
-    cy.json({ elements: json });
-    cy.nodes().forEach(node => {
+    cy1.json({ elements: json });
+    cy2.json({ elements: json });
+    cy1.nodes().forEach(node => {
+      if (!node.data('stateVariables'))
+        node.data('stateVariables', []);
+      if (!node.data('unitsOfInformation'))
+        node.data('unitsOfInformation', []);
+    });
+    cy2.nodes().forEach(node => {
       if (!node.data('stateVariables'))
         node.data('stateVariables', []);
       if (!node.data('unitsOfInformation'))
@@ -179,24 +158,35 @@ let loadSample = function (json, sampleName) {
     });
     document.getElementById('idealEdgeLength').value = 200;
   } else if (sampleName && sampleName == "cheminfo") {
-    cy.style(stylesheetCheminfo);
-    cy.json({ elements: json });
+    cy1.style(stylesheetCheminfo);
+    cy1.json({ elements: json });
+    cy2.style(stylesheetCheminfo);
+    cy2.json({ elements: json });
   } else if (sampleName && sampleName == "crime") {
-    cy.style(stylesheetCrime);
-    cy.json({ elements: json });
+    cy1.style(stylesheetCrime);
+    cy1.json({ elements: json });
+    cy2.style(stylesheetCrime);
+    cy2.json({ elements: json });
   } else if (sampleName && sampleName == "rome") {
-    cy.style(stylesheetRome);
-    cy.json({ elements: json });
+    cy1.style(stylesheetRome);
+    cy1.json({ elements: json });
+    cy2.style(stylesheetRome);
+    cy2.json({ elements: json });
   } else if (sampleName && sampleName == "water_network") {
-    cy.style(stylesheetWater);
-    cy.json({ elements: json });
+    cy1.style(stylesheetWater);
+    cy1.json({ elements: json });
+    cy2.style(stylesheetWater);
+    cy2.json({ elements: json });
   } else {
-    cy.style(defaultStylesheet);
-    cy.json({ elements: json });
+    cy1.style(defaultStylesheet);
+    cy1.json({ elements: json });
+    cy2.style(defaultStylesheet);
+    cy2.json({ elements: json });
   }
 
-  cy.layout({ "name": "fcose", idealEdgeLength: 75}).run();
-  cy.fit();
+  cy1.layout({ name: "fcose", animate: true, animationDuration: 500, stop: () => {
+    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 500 }).run();
+  }}).run();
 };
 
 // file operations - file upload
@@ -209,61 +199,65 @@ document.getElementById("inputFile").addEventListener("change", function (e) {
   if (!file) {
     alert("Failed to load file");
   }
-
+  let content = e.target.result;
   let fileExtension = file.name.split('.').pop();
   let reader = new FileReader();
   reader.onload = function (e) {
-    cy.remove(cy.elements());
-    var content = e.target.result;
-    if (fileExtension == "graphml" || fileExtension == "xml") {
-      cy.graphml({ layoutBy: 'fcose' });
-      cy.style(defaultStylesheet);
-      cy.graphml(content);
-      cy.nodes().forEach((node, i) => {
-        node.data("fakeID", "n" + i);
-      });
-    } else if (fileExtension == "json") {
-      cy.json({elements: JSON.parse(content)});
-      cy.style(defaultStylesheet);
-      cy.nodes().forEach((node, i) => {
-        node.data("fakeID", "n" + i);
-      });
-      cy.layout({name: "fcose"}).run();
-    } else { 
-      let lines = content.split('\n');
-      let nodesSet = new Set();
-      for (let line = 0; line < lines.length; line++) {
-        let nodes = lines[line].split(' ');
-        if(!nodesSet.has(nodes[0])){
-          let node1 = cy.add([
-            { group: 'nodes', data: { id: nodes[0] }, position: { x: 100, y: 100 } }
-          ]);
-          nodesSet.add(nodes[0]);
-        }
-        if(!nodesSet.has(nodes[1])){
-          let node1 = cy.add([
-            { group: 'nodes', data: { id: nodes[1] }, position: { x: 100, y: 100 } }
-          ]);
-          nodesSet.add(nodes[1]);
-        }
-      }
-      for (let line = 0; line < lines.length; line++) {
-        let nodes = lines[line].split(' ');
-        let node1 = cy.getElementById(nodes[0]);
-        let node2 = cy.getElementById(nodes[1]);
-        let edge = cy.add([
-          { group: 'edges', data: { id: nodes[0] + '_' + nodes[1], source: node1.id(), target: node2.id() } }
-        ]);
-      }
-    }
+    inputFileHelper(cy1, content, fileExtension);
+    //inputFileHelper(cy2, content, fileExtension);
   };
   reader.readAsText(file);
   document.getElementById("inputFile").value = null;
   document.getElementById("samples").value = "";
 });
 
+let inputFileHelper = function(cy, content, fileExtension){
+  cy.remove(cy.elements());
+  if (fileExtension == "graphml" || fileExtension == "xml") {
+    cy.graphml({ layoutBy: 'fcose' });
+    cy.style(defaultStylesheet);
+    cy.graphml(content);
+    cy.nodes().forEach((node, i) => {
+      node.data("fakeID", "n" + i);
+    });
+  } else if (fileExtension == "json") {
+    cy.json({elements: JSON.parse(content)});
+    cy.style(defaultStylesheet);
+    cy.nodes().forEach((node, i) => {
+      node.data("fakeID", "n" + i);
+    });
+    cy.layout({name: "fcose"}).run();
+  } else { 
+    let lines = content.split('\n');
+    let nodesSet = new Set();
+    for (let line = 0; line < lines.length; line++) {
+      let nodes = lines[line].split(' ');
+      if(!nodesSet.has(nodes[0])){
+        let node1 = cy.add([
+          { group: 'nodes', data: { id: nodes[0] }, position: { x: 100, y: 100 } }
+        ]);
+        nodesSet.add(nodes[0]);
+      }
+      if(!nodesSet.has(nodes[1])){
+        let node1 = cy.add([
+          { group: 'nodes', data: { id: nodes[1] }, position: { x: 100, y: 100 } }
+        ]);
+        nodesSet.add(nodes[1]);
+      }
+    }
+    for (let line = 0; line < lines.length; line++) {
+      let nodes = lines[line].split(' ');
+      let node1 = cy.getElementById(nodes[0]);
+      let node2 = cy.getElementById(nodes[1]);
+      let edge = cy.add([
+        { group: 'edges', data: { id: nodes[0] + '_' + nodes[1], source: node1.id(), target: node2.id() } }
+      ]);
+    }
+  }
+};
+
 // file operations - image download
-document.getElementById("savePNG").addEventListener("click", function () {
+/* document.getElementById("savePNG").addEventListener("click", function () {
   let pngContent = cy.png({ output: "blob", scale: 2, bg: "#ffffff", full: false });
   saveAs(pngContent, "graph.png");
 });
@@ -277,14 +271,16 @@ document.getElementById("saveSVG").addEventListener("click", function () {
   let svgContent = cy.svg({scale: 2, full: false});
   let blob = new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"});
   saveAs(blob, "graph.svg");
-});
+}); */
 
 document.getElementById('clearButton').addEventListener('click', clearCanvas);
 
 // layout operations
 // randomize layout
 document.getElementById("randomizeButton").addEventListener("click", async function () {
-  cy.layout({ name: "random", animate: true, animationDuration: 500 }).run();
+  cy1.layout({ name: "random", animate: true, animationDuration: 500, stop: () => {
+    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 500 }).run();
+  }}).run();
 });
 
 // user-guided layout 
@@ -292,28 +288,27 @@ document.getElementById("layoutButton").addEventListener("click", async function
   document.getElementById("layoutButton").innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only"> Processing...</span>';
   document.getElementById("layoutButton").disabled = true;
 
-  let layoutName = document.querySelector('input[name="layoutName"]:checked').value;
   let applyPolishing = document.getElementById('applyPolishing').checked;
   let idealEdgeLength = parseFloat(document.getElementById('idealEdgeLength').value);
   let slopeThreshold = parseFloat(document.getElementById("slopeThreshold").value);
   let connectionTolerance = parseInt(document.getElementById("connectionTolerance").value);
   let imageData = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
   let subset = undefined;
-  if (cy.elements(':selected').length > 0) {
-    subset = cy.elements(':selected');
+  if (cy1.elements(':selected').length > 0) {
+    subset = cy1.elements(':selected');
   }
 
-  let result = await uggly.generateConstraints({cy: cy, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+  let result = await sketchLay.generateConstraints({cy: cy1, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
   let constraints = result.constraints;
   let applyIncremental = result.applyIncremental;
 
-  await applyLayout(layoutName, constraints, applyIncremental, applyPolishing);
-
-  document.getElementById("layoutButton").disabled = false;
-  document.getElementById("layoutButton").innerHTML = 'Apply Layout';
+  await applyLayoutFcose(cy1, constraints, applyIncremental, applyPolishing);
+  setTimeout(async function() {
+    await applyLayoutCola(cy2, constraints, applyIncremental, applyPolishing);
+  }, 1600); 
 });
 
-async function applyLayout(layoutName, constraints, applyIncremental, applyPolishing) {
+async function applyLayoutFcose(cy, constraints, applyIncremental, applyPolishing) {
   let randomize = true;
   let initialEnergyOnIncremental = 0.3;
 
@@ -337,23 +332,47 @@ async function applyLayout(layoutName, constraints, applyIncremental, applyPolis
     idealEdgeLength = parseFloat(document.getElementById('idealEdgeLength').value);
   }
 
-  if (layoutName == "fcose") {  // call fCoSE layout
-    try {
-      callFcoseLayout(randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing);
-    } catch (error) {
-      alert("Couldn't process constraints! Please try again!");
-    }
-  } else {  // call CoLa layout
-    try {
-      constraints = convertToColaConstraints(constraints);  // convert constraints to CoLa format
-      callColaLayout(randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing);
-    } catch (error) {
-      alert("Couldn't process constraints! Please try again!");
-    }    
+  try {
+    callFcoseLayout(cy, randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing);
+  } catch (error) {
+    alert("Couldn't process constraints! Please try again!");
   }
 }
 
-function convertToColaConstraints(constraints) {
+
+async function applyLayoutCola(cy, constraints, applyIncremental, applyPolishing) {
+  let randomize = true;
+  let initialEnergyOnIncremental = 0.3;
+
+  // if there are selected elements, apply incremental layout on selected elements
+  if (cy.elements(':selected').length > 0) {
+    randomize = false;
+    initialEnergyOnIncremental = 0.1;
+  }
+
+  let idealEdgeLength;
+  // apply different ideal edge length for these samples
+  if (sampleName == "glycolysis" || sampleName == "tca_cycle"){
+    idealEdgeLength = function(edge) {
+      if(edge.source().degree() == 1 || edge.target().degree() == 1) {
+        return 75;
+      } else {
+        return parseFloat(document.getElementById('idealEdgeLength').value);
+      }
+    };
+  } else {
+    idealEdgeLength = parseFloat(document.getElementById('idealEdgeLength').value);
+  }
+
+  try {
+    let constraintsCoLa = convertToColaConstraints(cy, constraints);  // convert constraints to CoLa format
+    callColaLayout(cy, randomize, idealEdgeLength, initialEnergyOnIncremental, constraintsCoLa, applyIncremental, applyPolishing);
+  } catch (error) {
+    alert("Couldn't process constraints! Please try again!");
+  }
+}
+
+function convertToColaConstraints(cy, constraints) {
   let colaConstraints = {};
   // process alignment constraints - first vertical then horizontal
   let alignmentConstraintExist = false;
@@ -409,7 +428,7 @@ function convertToColaConstraints(constraints) {
   return colaConstraints;
 }
 
-function callFcoseLayout(randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing) {
+function callFcoseLayout(cy, randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing) {
   cy.layout({
     name: "fcose",
     randomize: randomize,
@@ -434,7 +453,7 @@ function callFcoseLayout(randomize, idealEdgeLength, initialEnergyOnIncremental,
   }).run();
 };
 
-function callColaLayout(randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing) {
+function callColaLayout(cy, randomize, idealEdgeLength, initialEnergyOnIncremental, constraints, applyIncremental, applyPolishing) {
   cy.layout({
     name: "cola",
     randomize: randomize,
@@ -466,6 +485,8 @@ function callColaLayout(randomize, idealEdgeLength, initialEnergyOnIncremental, 
         }).run();
       }
       cy.nodes().unlock();
+      document.getElementById("layoutButton").disabled = false;
+      document.getElementById("layoutButton").innerHTML = 'Apply Layout';
     }
   }).run();
 };
@@ -509,5 +530,25 @@ document.getElementById("uploadImage").addEventListener("click", async function 
 });
 
 document.getElementById("runTest").addEventListener("click", async function () {
-  uggly.runTest();
+  sketchLay.runTest();
+});
+
+cy1.on("select", (event) => {
+  let evtTarget = event.target;
+  cy2.getElementById(evtTarget.id()).select();
+});
+
+cy1.on("unselect", (event) => {
+  let evtTarget = event.target;
+  cy2.getElementById(evtTarget.id()).unselect();
+});
+
+cy2.on("select", (event) => {
+  let evtTarget = event.target;
+  cy1.getElementById(evtTarget.id()).select();
+});
+
+cy2.on("unselect", (event) => {
+  let evtTarget = event.target;
+  cy1.getElementById(evtTarget.id()).unselect();
 });

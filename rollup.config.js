@@ -19,7 +19,7 @@ export default [
 			{
 				file: 'dist/bundle.umd.js',
 				format: 'umd',
-				name: 'uggly',
+				name: 'sketchLay',
 				exports: 'default',
 			}
 		],

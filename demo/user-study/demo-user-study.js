@@ -142,7 +142,7 @@ document.getElementById("layoutButton").addEventListener("click", async function
   let imageData = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
   let subset = undefined;
 
-  let result1 = await uggly.generateConstraints({cy: cy1, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+  let result1 = await sketchLay.generateConstraints({cy: cy1, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
   let constraints1 = result1.constraints;
   let applyIncremental1 = result1.applyIncremental;
 
@@ -152,8 +152,8 @@ document.getElementById("layoutButton").addEventListener("click", async function
   }, 1500);  
 
   setTimeout(async function() {
-    await uggly.generateConstraints({cy: cy3, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
-    let result2 = await uggly.generateConstraints({cy: cy3, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+    await sketchLay.generateConstraints({cy: cy3, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+    let result2 = await sketchLay.generateConstraints({cy: cy3, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
     let constraints2 = result2.constraints;
     let applyIncremental2 = result2.applyIncremental;
 
@@ -164,8 +164,8 @@ document.getElementById("layoutButton").addEventListener("click", async function
   }, 3000);
 
   setTimeout(async function() {
-    await uggly.generateConstraints({cy: cy5, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
-    let result3 = await uggly.generateConstraints({cy: cy5, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+    await sketchLay.generateConstraints({cy: cy5, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+    let result3 = await sketchLay.generateConstraints({cy: cy5, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
     let constraints3 = result3.constraints;
     let applyIncremental3 = result3.applyIncremental;
 

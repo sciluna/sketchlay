@@ -979,11 +979,11 @@ let pruneGraph = function (cy, graph, isSubset) {
 };
 
 //import { runTest } from "./test_runtime";
-let uggly = function () {
+let sketchLay = function () {
 
 };
 
-uggly.generateConstraints = function(options){
+sketchLay.generateConstraints = function(options){
   let cy = options.cy;
   let imageData = options.imageData;
   let subset = options.subset || undefined;
@@ -994,11 +994,11 @@ uggly.generateConstraints = function(options){
   return generateConstraints(cy, imageData, subset, idealEdgeLength, slopeThreshold, cycleThreshold, connectionTolerance);
 };
 
-//uggly.runTest = runTest; // for test purposes
+//sketchLay.runTest = runTest; // for test purposes
 
-// Make uggly available globally if running in browser
+// Make sketchLay available globally if running in browser
 if (typeof window !== 'undefined') {
-  window.uggly = uggly;
+  window.sketchLay = sketchLay;
 }
 
 const isFn = fn => typeof fn === 'function';
@@ -1012,7 +1012,7 @@ const optFn = ( opt, cy ) => {
 };
 
 /*!
- * uggly.js
+ * sketchLay.js
  * License: CC0 1.0 Universal
  *
  * This project uses simplify.js, licensed under the BSD-2-Clause License:
@@ -1041,4 +1041,4 @@ const optFn = ( opt, cy ) => {
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-module.exports = uggly;
+module.exports = sketchLay;

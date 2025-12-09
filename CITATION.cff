@@ -7,10 +7,10 @@ authors:
 - family-names: "Luna"
   given-names: "Augustin"
   orcid: "https://orcid.org/0000-0001-5709-371X"
-title: "uggly"
+title: "SketchLay"
 version: 1.0.0
 date-released: 2025-04-30
-url: "https://github.com/sciluna/uggly"
+url: "https://github.com/sciluna/sketchlay"
 preferred-citation:
   type: article
   authors:
