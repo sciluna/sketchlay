@@ -11,9 +11,9 @@ hr {
 
 .container2 {
   position: absolute;
-  left: 29%;
+  left: 25%;
   display: grid;
-  width: 71%;
+  width: 75%;
   height: 90%;
   grid-template-columns: 1fr 1fr;
   background-color: white;
@@ -41,7 +41,7 @@ hr {
 
 #inputArea {
   position: absolute;
-  width: 28%;
+  width: 25%;
   height: 90%;
   margin-top: 0px;
 }
@@ -55,7 +55,7 @@ hr {
 }
 
 #drawingCanvas {
-  display: flexbox;
+  position: relative;
   margin-bottom: 15px;
   cursor: crosshair;
   border-radius: 2px;

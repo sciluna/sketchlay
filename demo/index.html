@@ -41,6 +41,18 @@
   <script type="text/javascript" src="samples/sample5.js"></script>
   <script type="text/javascript" src="samples/tca_cycle.js"></script>
   <script type="text/javascript" src="samples/water_network.js"></script>
+  <script type="text/javascript" src="samples/graph1.js"></script>
+  <script type="text/javascript" src="samples/graph2.js"></script>
+  <script type="text/javascript" src="samples/graph3.js"></script>
+  <script type="text/javascript" src="samples/graph4.js"></script>
+  <script type="text/javascript" src="samples/graph5.js"></script>
+  <script type="text/javascript" src="samples/graph6.js"></script>
+  <script type="text/javascript" src="samples/graph7.js"></script>
+  <script type="text/javascript" src="samples/graph8.js"></script>
+  <script type="text/javascript" src="samples/graph9.js"></script>
+  <script type="text/javascript" src="samples/graph10.js"></script>
+  <script type="text/javascript" src="samples/graph11.js"></script>
+  <script type="text/javascript" src="samples/graph12.js"></script>
 </head>
 
 <body>
@@ -64,15 +76,25 @@
         <option value="" disabled selected>Select</option>
         <option value="sample1">Sample 1</option>
         <option value="sample2">Sample 2</option>
-        <option value="sample3">Sample 3</option>
-        <option value="sample4">Sample 4</option>
-        <option value="sample5">Sample 5</option>
+        <option value="graph1">Sample 3</option>
+        <option value="graph2">Sample 4</option>
+        <option value="graph3">Sample 5</option>
+        <option value="graph4">Sample 6</option>
+        <option value="graph5">Sample 7</option>
+        <option value="graph6">Sample 8</option>
+        <option value="graph7">Sample 9</option>
+        <option value="graph8">Sample 10</option>
+        <option value="graph9">Sample 11</option>
+        <option value="graph10">Sample 12</option>
+        <option value="graph11">Sample 13</option>
+        <option value="graph12">Sample 14</option>
+        <option value="sample5">Sample 15</option>
+        <option value="rome">Sample 16</option>
         <option value="water_network">Water Network</option>
         <option value="glycolysis">Glycolysis</option>
         <option value="tca_cycle">TCA Cycle</option>
         <option value="cheminfo">Enzymes-g296</option>
         <option value="crime">Crime-Moreno</option>
-        <option value="rome">Rome Graph</option>
       </select>
       <i id="infoButton" class="bi bi-info-circle-fill fs-5"></i>
       <span id="infoTooltip" class="tooltiptext">- Load a GraphML file or select a sample file <br> - Draw the sketch that will guide your graph's layout <br> - Click Apply Layout button <br> <em>Note:</em> For partial adjustment, first select the relevant part, then apply the layout </span>
@@ -108,7 +130,7 @@
           <input id="connectionTolerance" class="form-control form-control-sm" type="number" value="20" step="1" min="0" max="500">
         </div>
       </div>
-      <canvas id="drawingCanvas"></canvas><br>
+      <canvas id="drawingCanvas"></canvas>
       <div class="row" style="font-size: 14; display: none">
         <div>
           <label for="computationMode" style="padding: 0 3 15 0;">Image analysis:</label>
@@ -174,7 +196,7 @@
 
       // Set the canvas's internal rendering size to match the container
       canvas.width = rect.width - 15;
-      canvas.height = 250;
+      canvas.height = 275;
 
       // Optional: Adjust for high-DPI displays
       const pixelRatio = window.devicePixelRatio || 1;

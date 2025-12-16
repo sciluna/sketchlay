@@ -1114,9 +1114,9 @@ sample1 = {
         "width": 1.25,
         "cardinality": 0,
         "source": "n5",
-        "target": "n104",
+        "target": "n103",
         "portsource": "n5",
-        "porttarget": "n104.1"
+        "porttarget": "n103.1"
       },
       "position": {},
       "group": "edges",
@@ -1136,9 +1136,9 @@ sample1 = {
         "line-color": "#555555",
         "width": 1.25,
         "cardinality": 0,
-        "source": "n104",
+        "source": "n103",
         "target": "n4",
-        "portsource": "n104.2",
+        "portsource": "n103.2",
         "porttarget": "n4"
       },
       "position": {},

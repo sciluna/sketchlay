@@ -95,94 +95,6 @@ graph1 = {
     },
     {
       "data": {
-        "id": "panther:_Pyruvate_Dehydrogenase_s3_a3_",
-        "bbox": {
-          "x": -250.6792907851987,
-          "y": 60.79847411489868,
-          "w": 48,
-          "h": 25
-        },
-        "class": "macromolecule",
-        "label": "Pyruvate\\nDehydrogenase",
-        "statesandinfos": [],
-        "language": "PD",
-        "border-width": 1.25,
-        "border-color": "#555555",
-        "background-color": "#ffffff",
-        "background-opacity": 1,
-        "background-image-opacity": 1,
-        "text-wrap": "wrap",
-        "border-style": "solid",
-        "font-size": 11,
-        "font-family": "Helvetica",
-        "font-style": "normal",
-        "font-weight": "normal",
-        "color": "#000",
-        "ports": [],
-        "infoboxCalculated": true,
-        "auxunitlayouts": {},
-        "stateVariables": [],
-        "unitsOfInformation": []
-      },
-      "position": {
-        "x": -456.0526365780187,
-        "y": 372.8772258660108
-      },
-      "group": "nodes",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": false,
-      "classes": ""
-    },
-    {
-      "data": {
-        "id": "panther:_Pyruvate_s1_a1_",
-        "bbox": {
-          "x": -333.84545365785533,
-          "y": -4.812594426225148,
-          "w": 48,
-          "h": 20
-        },
-        "class": "simple chemical",
-        "label": "Pyruvate",
-        "statesandinfos": [],
-        "language": "PD",
-        "border-width": 1.25,
-        "border-color": "#555555",
-        "background-color": "#ffffff",
-        "background-opacity": 1,
-        "background-image-opacity": 1,
-        "text-wrap": "wrap",
-        "border-style": "solid",
-        "font-size": 11,
-        "font-family": "Helvetica",
-        "font-style": "normal",
-        "font-weight": "normal",
-        "color": "#000",
-        "ports": [],
-        "infoboxCalculated": true,
-        "auxunitlayouts": {},
-        "stateVariables": [],
-        "unitsOfInformation": []
-      },
-      "position": {
-        "x": -331.98198748114487,
-        "y": 277.15309887377464
-      },
-      "group": "nodes",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": false,
-      "classes": ""
-    },
-    {
-      "data": {
         "id": "panther:_Citrate_s4_a4_",
         "bbox": {
           "x": -94.51116218649778,
@@ -1505,50 +1417,6 @@ graph1 = {
     },
     {
       "data": {
-        "id": "panther:_coA__PLUS__NAD_PLUS__s33_a45_",
-        "bbox": {
-          "x": -318.167001728652,
-          "y": -46.99777158528806,
-          "w": 48,
-          "h": 20
-        },
-        "class": "simple chemical",
-        "label": "coA + NAD+",
-        "statesandinfos": [],
-        "language": "PD",
-        "border-width": 1.25,
-        "border-color": "#555555",
-        "background-color": "#ffffff",
-        "background-opacity": 1,
-        "background-image-opacity": 1,
-        "text-wrap": "wrap",
-        "border-style": "solid",
-        "font-size": 11,
-        "font-family": "Helvetica",
-        "font-style": "normal",
-        "font-weight": "normal",
-        "color": "#000",
-        "ports": [],
-        "infoboxCalculated": true,
-        "auxunitlayouts": {},
-        "stateVariables": [],
-        "unitsOfInformation": []
-      },
-      "position": {
-        "x": -181.75130128903504,
-        "y": 318.532743756368
-      },
-      "group": "nodes",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": false,
-      "classes": ""
-    },
-    {
-      "data": {
         "id": "panther:_Succinyl_CoA_Synthetase_s24_a32_",
         "bbox": {
           "x": 206.66552692566708,
@@ -1895,51 +1763,6 @@ graph1 = {
       "position": {
         "x": -301.0351992227668,
         "y": 732.7352446279618
-      },
-      "group": "nodes",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": false,
-      "classes": ""
-    },
-    {
-      "data": {
-        "id": "panther:_CO2_PLUS__NADH_s34_a46__7ced2ad13bb4ec8abb69562dd39225a7",
-        "bbox": {
-          "x": -315.33931117979256,
-          "y": 34.759247493467306,
-          "w": 45,
-          "h": 15
-        },
-        "class": "simple chemical",
-        "label": "CO2+ NADH",
-        "statesandinfos": [],
-        "language": "PD",
-        "border-width": 1.25,
-        "border-color": "#555555",
-        "background-color": "#ffffff",
-        "background-opacity": 1,
-        "background-image-opacity": 1,
-        "text-wrap": "wrap",
-        "border-style": "solid",
-        "font-size": 11,
-        "font-family": "Helvetica",
-        "font-style": "normal",
-        "font-weight": "normal",
-        "color": "#000",
-        "clonemarker": true,
-        "ports": [],
-        "infoboxCalculated": true,
-        "auxunitlayouts": {},
-        "stateVariables": [],
-        "unitsOfInformation": []
-      },
-      "position": {
-        "x": -351.51966929327193,
-        "y": 535.9186227464829
       },
       "group": "nodes",
       "removed": false,
@@ -2370,33 +2193,6 @@ graph1 = {
         "target": "panther:HETERODIMER_ASSOCIATION_LEFT__Acetyl_CoA-_H2O-_Oxaloacetate-RIGHT__Citrate-_coA-_r23_LEFTTORIGHT",
         "portsource": "panther:_Oxaloacetate_s23_a31_",
         "porttarget": "panther:HETERODIMER_ASSOCIATION_LEFT__Acetyl_CoA-_H2O-_Oxaloacetate-RIGHT__Citrate-_coA-_r23_LEFTTORIGHT"
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "group": "edges",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": true,
-      "classes": ""
-    },
-    {
-      "data": {
-        "id": "panther:_Pyruvate_Dehydrogenase_s3_a3_--TO--panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "class": "catalysis",
-        "bendPointPositions": [],
-        "language": "PD",
-        "line-color": "#555555",
-        "width": 1.25,
-        "cardinality": 0,
-        "source": "panther:_Pyruvate_Dehydrogenase_s3_a3_",
-        "target": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "portsource": "panther:_Pyruvate_Dehydrogenase_s3_a3_",
-        "porttarget": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT"
       },
       "position": {
         "x": 0,
@@ -3007,33 +2803,6 @@ graph1 = {
     },
     {
       "data": {
-        "id": "OUT_panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT--TO--panther:_CO2_PLUS__NADH_s34_a46__7ced2ad13bb4ec8abb69562dd39225a7",
-        "class": "production",
-        "bendPointPositions": [],
-        "language": "PD",
-        "line-color": "#555555",
-        "width": 1.25,
-        "cardinality": 0,
-        "source": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "target": "panther:_CO2_PLUS__NADH_s34_a46__7ced2ad13bb4ec8abb69562dd39225a7",
-        "portsource": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "porttarget": "panther:_CO2_PLUS__NADH_s34_a46__7ced2ad13bb4ec8abb69562dd39225a7"
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "group": "edges",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": true,
-      "classes": ""
-    },
-    {
-      "data": {
         "id": "OUT_panther:STATE_TRANSITION_LEFT__alphaKetoglutarate-_coA-_NAD_PLUS_-RIGHT__NADH_PLUS_H_PLUS_-_CO2-_Succinyl_CoA-_r16_LEFTTORIGHT--TO--panther:_NADH_PLUS_H_PLUS__s15_a18__43d7536b925d2b40eb2a511523ce70a1",
         "class": "production",
         "bendPointPositions": [],
@@ -3493,33 +3262,6 @@ graph1 = {
     },
     {
       "data": {
-        "id": "panther:_coA__PLUS__NAD_PLUS__s33_a45_--TO--INP_panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "class": "consumption",
-        "bendPointPositions": [],
-        "language": "PD",
-        "line-color": "#555555",
-        "width": 1.25,
-        "cardinality": 0,
-        "source": "panther:_coA__PLUS__NAD_PLUS__s33_a45_",
-        "target": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "portsource": "panther:_coA__PLUS__NAD_PLUS__s33_a45_",
-        "porttarget": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT"
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "group": "edges",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": true,
-      "classes": ""
-    },
-    {
-      "data": {
         "id": "panther:_Isocitrate_Dehydrogenase_s13_a16_--TO--panther:STATE_TRANSITION_LEFT__IsoCitrate-_NAD_PLUS_-RIGHT__NADH_PLUS_H_PLUS_-_Oxalosuccinate-_r6_LEFTTORIGHT",
         "class": "catalysis",
         "bendPointPositions": [],
@@ -3666,33 +3408,6 @@ graph1 = {
         "target": "panther:STATE_TRANSITION_LEFT__Oxalosuccinate-RIGHT__CO2-_alphaKetoglutarate-_r15_LEFTTORIGHT",
         "portsource": "panther:_Oxalosuccinate_s12_a15_",
         "porttarget": "panther:STATE_TRANSITION_LEFT__Oxalosuccinate-RIGHT__CO2-_alphaKetoglutarate-_r15_LEFTTORIGHT"
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "group": "edges",
-      "removed": false,
-      "selected": false,
-      "selectable": true,
-      "locked": false,
-      "grabbable": true,
-      "pannable": true,
-      "classes": ""
-    },
-    {
-      "data": {
-        "id": "panther:_Pyruvate_s1_a1_--TO--INP_panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "class": "consumption",
-        "bendPointPositions": [],
-        "language": "PD",
-        "line-color": "#555555",
-        "width": 1.25,
-        "cardinality": 0,
-        "source": "panther:_Pyruvate_s1_a1_",
-        "target": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT",
-        "portsource": "panther:_Pyruvate_s1_a1_",
-        "porttarget": "panther:STATE_TRANSITION_LEFT__coA__PLUS__NAD_PLUS_-_Pyruvate-RIGHT__Acetyl_CoA-_CO2_PLUS__NADH-_r24_LEFTTORIGHT"
       },
       "position": {
         "x": 0,

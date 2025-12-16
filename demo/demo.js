@@ -90,7 +90,7 @@ let stylesheetWater = [
 let cy1 = window.cy1 = cytoscape({
   container: document.getElementById('cy1'),
   style: defaultStylesheet,
-  elements: sample0,
+  //elements: sample0,
 /*   layout: {name: "fcose", idealEdgeLength: 75}, */
 });
 
@@ -99,24 +99,34 @@ let cy2 = window.cy2 = cytoscape({
   style: defaultStylesheet
 });
 
-cy1.layout({ name: "fcose", animate: true, animationDuration: 500, stop: () => {
+/* cy1.layout({ name: "fcose", animate: true, animationDuration: 500, stop: () => {
   cy2.add(sample0);
   cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: false, animationDuration: 500 }).run();
-}}).run();
+}}).run(); */
 
 // Sample File Changer
 let sampleFileNames = {
   "sample1" : sample1,
   "sample2" : sample2,
-  "sample3" : sample3,
-  "sample4" : sample4,    
+  "graph1" : graph1,
+  "graph2" : graph2,
+  "graph3" : graph3,
+  "graph4" : graph4,
+  "graph5" : graph5,
+  "graph6" : graph6,
+  "graph7" : graph7,
+  "graph8" : graph8,
+  "graph9" : graph9,
+  "graph10" : graph10,
+  "graph11" : graph11,
+  "graph12" : graph12,
   "sample5" : sample5,
+  "rome" : rome,
   "water_network" : water_network,
   "glycolysis" : glycolysis,
   "tca_cycle" : tca_cycle,
   "cheminfo" : cheminfo,
-  "crime" : crime,
-  "rome" : rome
+  "crime" : crime
 };
 
 let sampleName = "";
@@ -143,14 +153,8 @@ let loadSample = function (json, sampleName) {
       cy2.style(cytoscapeSbgnStylesheet(cytoscape, "purple_green"));
     }
     cy1.json({ elements: json });
-    cy2.json({ elements: json });
+    //cy2.json({ elements: json });
     cy1.nodes().forEach(node => {
-      if (!node.data('stateVariables'))
-        node.data('stateVariables', []);
-      if (!node.data('unitsOfInformation'))
-        node.data('unitsOfInformation', []);
-    });
-    cy2.nodes().forEach(node => {
       if (!node.data('stateVariables'))
         node.data('stateVariables', []);
       if (!node.data('unitsOfInformation'))
@@ -161,31 +165,41 @@ let loadSample = function (json, sampleName) {
     cy1.style(stylesheetCheminfo);
     cy1.json({ elements: json });
     cy2.style(stylesheetCheminfo);
-    cy2.json({ elements: json });
+    document.getElementById('idealEdgeLength').value = 50;
   } else if (sampleName && sampleName == "crime") {
     cy1.style(stylesheetCrime);
     cy1.json({ elements: json });
     cy2.style(stylesheetCrime);
-    cy2.json({ elements: json });
+    document.getElementById('idealEdgeLength').value = 50;
   } else if (sampleName && sampleName == "rome") {
     cy1.style(stylesheetRome);
     cy1.json({ elements: json });
     cy2.style(stylesheetRome);
-    cy2.json({ elements: json });
+    document.getElementById('idealEdgeLength').value = 50;
   } else if (sampleName && sampleName == "water_network") {
     cy1.style(stylesheetWater);
     cy1.json({ elements: json });
     cy2.style(stylesheetWater);
-    cy2.json({ elements: json });
+    document.getElementById('idealEdgeLength').value = 50;
   } else {
     cy1.style(defaultStylesheet);
     cy1.json({ elements: json });
     cy2.style(defaultStylesheet);
-    cy2.json({ elements: json });
+    document.getElementById('idealEdgeLength').value = 50;
   }
 
-  cy1.layout({ name: "fcose", animate: true, animationDuration: 500, stop: () => {
-    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 500 }).run();
+  cy1.layout({ name: "fcose", animate: true, animationDuration: 1000, stop: () => {
+    let jsonCopy = JSON.parse(JSON.stringify(json))
+    cy2.json({ elements: jsonCopy });
+    if (sampleName == "glycolysis" || sampleName == "tca_cycle") {
+      cy2.nodes().forEach(node => {
+        if (!node.data('stateVariables'))
+          node.data('stateVariables', []);
+        if (!node.data('unitsOfInformation'))
+          node.data('unitsOfInformation', []);
+      });
+    }
+    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 1000 }).run();
   }}).run();
 };
 
@@ -199,12 +213,12 @@ document.getElementById("inputFile").addEventListener("change", function (e) {
   if (!file) {
     alert("Failed to load file");
   }
-  let content = e.target.result;
   let fileExtension = file.name.split('.').pop();
   let reader = new FileReader();
   reader.onload = function (e) {
+    let content = e.target.result;
     inputFileHelper(cy1, content, fileExtension);
-    //inputFileHelper(cy2, content, fileExtension);
+    inputFileHelper(cy2, content, fileExtension);
   };
   reader.readAsText(file);
   document.getElementById("inputFile").value = null;
@@ -278,8 +292,8 @@ document.getElementById('clearButton').addEventListener('click', clearCanvas);
 // layout operations
 // randomize layout
 document.getElementById("randomizeButton").addEventListener("click", async function () {
-  cy1.layout({ name: "random", animate: true, animationDuration: 500, stop: () => {
-    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 500 }).run();
+  cy1.layout({ name: "random", animate: true, animationDuration: 1000, stop: () => {
+    cy2.layout({ name: "preset", positions: (node) => {return cy1.getElementById(node.id()).position()}, animate: true, animationDuration: 1000 }).run();
   }}).run();
 });
 
@@ -298,14 +312,19 @@ document.getElementById("layoutButton").addEventListener("click", async function
     subset = cy1.elements(':selected');
   }
 
-  let result = await sketchLay.generateConstraints({cy: cy1, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
-  let constraints = result.constraints;
-  let applyIncremental = result.applyIncremental;
+  if (cy1.elements().length > 0) {
+    let result = await sketchLay.generateConstraints({cy: cy1, imageData: imageData, subset: subset, idealEdgeLength: idealEdgeLength, slopeThreshold: slopeThreshold, connectionTolerance: connectionTolerance});
+    let constraints = result.constraints;
+    let applyIncremental = result.applyIncremental;
 
-  await applyLayoutFcose(cy1, constraints, applyIncremental, applyPolishing);
-  setTimeout(async function() {
-    await applyLayoutCola(cy2, constraints, applyIncremental, applyPolishing);
-  }, 1600); 
+    await applyLayoutFcose(cy1, constraints, applyIncremental, applyPolishing);
+    setTimeout(async function() {
+      await applyLayoutCola(cy2, constraints, applyIncremental, applyPolishing);
+    }, 1600);
+  } else {
+    document.getElementById("layoutButton").disabled = false;
+    document.getElementById("layoutButton").innerHTML = 'Apply Layout';
+  }
 });
 
 async function applyLayoutFcose(cy, constraints, applyIncremental, applyPolishing) {
