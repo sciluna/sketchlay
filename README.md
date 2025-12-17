@@ -6,7 +6,7 @@ Click [here](https://sciluna.github.io/sketchlay/demo/index.html) for a demo.
 
 Here is a video tutorial:
 
-https://github.com/user-attachments/assets/21c3380e-7239-41cb-86d6-a2e0b76a1876
+https://github.com/user-attachments/assets/6d9c5eab-43dd-4c48-a61c-09ebe3d421a1
 
 ## Dependencies
   
@@ -97,7 +97,7 @@ After constraints are generated, they can be used as options in a layout algorit
 
 We provide a detailed analysis of how well our method integrates with the two constraint-aware layout algorithms, [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola). To this end, we constructed a dataset by randomly sampling 160 graphs from [Rome graph dataset](https://graphdrawing.unipg.it/data.html) and designed 20 base sketches consisting of consecutive line and curve segments. Each base sketch was then rotated clockwise by 30°, 45°, and 60° to produce variants with different orientations, resulting in a total of 80 distinct sketches. These sketches were then randomly assigned to the 160 graphs, producing 160 graph–sketch pairs. For each pair, we generated placement constraints using our approach and then applied both [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola) algorithms in the final layout step. 
 
-We report results on run time performance, soft constraint satisfaction (average edge length, edge crossings, node-node overlaps and node-edge overlaps), and alignment accuracy measured by Chamfer distance between the sketch and the final layout. The graph and sketch dataset, along with the resulting layouts and measurements, can be found at [10.5281/zenodo.15306614](https://doi.org/10.5281/zenodo.15306614).
+We report results on run time performance, soft constraint satisfaction (average edge length, edge crossings, node-node overlaps and node-edge overlaps), and alignment accuracy measured by Chamfer distance between the sketch and the final layout. The graph and sketch dataset, along with the resulting layouts and measurements, can be found at [10.5281/zenodo.17953665](https://doi.org/10.5281/zenodo.17953665).
 
 ### User study
 
