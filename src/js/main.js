@@ -97,7 +97,7 @@ let pruneGraph = function (cy, graph, isSubset) {
         oneDegreeNodes.merge(node);
       }
     });
-    if ((oneDegreeNodes.length == 2 && graph.nodes().length == 3) || (graph.nodes().length == 2)) {  // in case it is a 3-node or 2-node line graph
+    if (oneDegreeNodes.length == 2) {  // mostly for path-like graphs
       prunedGraph = graph;
     } else {
       graph.nodes().forEach(node => {
