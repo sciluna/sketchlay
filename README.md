@@ -93,11 +93,18 @@ let options = {
 After constraints are generated, they can be used as options in a layout algorithm with constraint support such as [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola) as shown in the [demo](https://github.com/sciluna/sketchlay/blob/main/demo/demo.js).
 
 ## Evaluation
-### Performance comparison between fCoSE and CoLa layouts
+### Quantitative evaluation
+#### Parameter sensitivity and robustness
 
-We provide a detailed analysis of how well our method integrates with the two constraint-aware layout algorithms, [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola). To this end, we constructed a dataset by randomly sampling 160 graphs from [Rome graph dataset](https://graphdrawing.unipg.it/data.html) and designed 20 base sketches consisting of consecutive line and curve segments. Each base sketch was then rotated clockwise by 30°, 45°, and 60° to produce variants with different orientations, resulting in a total of 80 distinct sketches. These sketches were then randomly assigned to the 160 graphs, producing 160 graph–sketch pairs. For each pair, we generated placement constraints using our approach and then applied both [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola) algorithms in the final layout step. 
+We evaluate the sensitivity of SketchLay to two key sketch-processing parameters: connection tolerance and slope threshold. For the connection tolerance analysis, we generated low-, medium-, and high-noise variants of 20 base sketches by introducing smooth geometric distortions and small stroke interruptions, and evaluated connectivity errors across different tolerance values. For the slope threshold analysis, we used the 20 base sketches together with their 30°, 45°, and 60° clockwise rotations and evaluated the classification of straight segments as axis-aligned or diagonal across different threshold values.
 
-We report results on run time performance, soft constraint satisfaction (average edge length, edge crossings, node-node overlaps and node-edge overlaps), and alignment accuracy measured by Chamfer distance between the sketch and the final layout. The graph and sketch dataset, along with the resulting layouts and measurements, can be found at [10.5281/zenodo.17953665](https://doi.org/10.5281/zenodo.17953665).
+#### Alignment and layout performance
+
+We evaluate how SketchLay integrates with two constraint-aware layout algorithms, [fCoSE](https://github.com/iVis-at-Bilkent/cytoscape.js-fcose) and [CoLa](https://github.com/cytoscape/cytoscape.js-cola). We randomly sampled 160 graphs from the [Rome graph dataset](https://graphdrawing.unipg.it/data.html) and used the 20 base sketches together with their 30°, 45°, and 60° clockwise rotations, resulting in 80 sketch variants. Each sketch was randomly assigned to two distinct graphs, producing 160 graph–sketch pairs. For each pair, placement constraints were generated once using SketchLay, and both fCoSE and CoLa were applied to the same graph using the same constraints.
+
+We report results on runtime, soft constraint satisfaction (average edge length, edge crossings, node-node overlaps, and node-edge overlaps), and alignment accuracy measured by Chamfer distance between the sketch and the final layout.
+
+The dataset, scripts, generated layouts, and evaluation results for the quantitative experiments are available at [NEW DOI](https://doi.org/NEW-DOI).
 
 ### User study
 
