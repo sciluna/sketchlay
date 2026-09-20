@@ -104,7 +104,7 @@ We evaluate how SketchLay integrates with two constraint-aware layout algorithms
 
 We report results on runtime, soft constraint satisfaction (average edge length, edge crossings, node-node overlaps, and node-edge overlaps), and alignment accuracy measured by Chamfer distance between the sketch and the final layout.
 
-The dataset, scripts, generated layouts, and evaluation results for the quantitative experiments are available at [NEW DOI](https://doi.org/NEW-DOI).
+The dataset, scripts, generated layouts, and evaluation results for the quantitative experiments are available at [10.5281/zenodo.22797307](https://doi.org/10.5281/zenodo.22797307).
 
 ### User study
 
